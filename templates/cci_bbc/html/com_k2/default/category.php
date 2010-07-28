@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access');
 	<?php if($this->params->get('show_page_title')): ?>
 	<!-- Page title -->
 	<div class="componentheading<?php echo $this->params->get('pageclass_sfx')?>">
-		<?php echo $this->escape($this->params->get('page_title')); ?>
+		<h1><?php echo $this->escape($this->params->get('page_title')); ?></h1>
 	</div>
 	<?php endif; ?>
 
@@ -59,7 +59,7 @@ defined('_JEXEC') or die('Restricted access');
 			<h2><?php echo $this->category->name; ?><?php if($this->params->get('catTitleItemCounter')) echo ' ('.$this->pagination->total.')'; ?></h2>
 			<?php endif; ?>
 
-			<?php if($this->params->get('catDescription')): ?>
+			<?php if($this->params->get('catDescription') && $this->category->description != ''): ?>
 			<!-- Category description -->
 			<p><?php echo $this->category->description; ?></p>
 			<?php endif; ?>

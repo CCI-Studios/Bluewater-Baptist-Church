@@ -19,7 +19,7 @@
 </head>
 
 <body class="<?php echo $menu; ?>">
-	<div id="wrapper">
+	<div id="wrapper"><div>
 		<?php if ($this->countModules('top')): ?>
 		<div id="top">
 			<jdoc:include type="modules" name="top" style="xhtml" />
@@ -34,8 +34,12 @@
 		
 		<?php if (($menu == 'home' && $this->countModules('mastheadHome')) || ($menu != 'home' && $this->countModules('masthead'))): ?>
 		<div id="masthead">
+			<?php if ($menu == 'home'): ?>
 			<jdoc:include type="modules" name="mastheadHome" style="xhtml" />
+			<?php else: ?>
 			<jdoc:include type="modules" name="masthead" style="xhtml" />
+			<?php endif; ?>
+			<div class="clr"></div>
 		</div>
 		<?php endif; // masthead ?>
 		
@@ -46,8 +50,11 @@
 			
 			<?php if (($menu == 'home' && $this->countModules('sidebarHome')) || ($menu != 'home' && $this->countModules('sidebar'))): ?>
 			<div id="sidebar">
+				<?php if ($menu == 'home'): ?>
 				<jdoc:include type="modules" name="sidebarHome" style="xhtml" />
+				<?php else: ?>
 				<jdoc:include type="modules" name="sidebar" style="xhtml" />
+				<?php endif; ?>
 			</div>
 			<?php endif; // sidebar ?>
 			<div class="clear"></div>
@@ -64,7 +71,7 @@
 			
 			<div class="clear"></div>
 		</div>
-	</div><!-- /wrapper -->
+	</div></div><!-- /wrapper -->
 	
 	<div class="hidden">
 		<jdoc:include type="modules" name="hidden" style="raw" />

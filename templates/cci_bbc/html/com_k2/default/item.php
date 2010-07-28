@@ -43,7 +43,7 @@ defined('_JEXEC') or die('Restricted access');
 
 	  <?php if($this->item->params->get('itemTitle')): ?>
 	  <!-- Item title -->
-	  <h2 class="itemTitle">
+	  <h1 class="itemTitle">
 	  	<?php echo $this->item->title; ?>
 
 	  	<?php if($this->item->params->get('itemFeaturedNotice') && $this->item->featured): ?>
@@ -55,7 +55,7 @@ defined('_JEXEC') or die('Restricted access');
 	  	</span>
 	  	<?php endif; ?>
 
-	  </h2>
+	  </h1>
 	  <?php endif; ?>
 
 		<?php if($this->item->params->get('itemAuthor')): ?>
@@ -593,9 +593,11 @@ defined('_JEXEC') or die('Restricted access');
   </div>
   <?php endif; ?>
 
+	<?php if (false): ?>
 	<div class="itemBackToTop">
 		<a class="k2Anchor" href="<?php echo $this->item->link; ?>#startOfPageId<?php echo JRequest::getInt('id'); ?>"><?php echo JText::_("back to top"); ?></a>
 	</div>
+	<?php endif; ?>
 
 	<div class="clr"></div>
 </div>

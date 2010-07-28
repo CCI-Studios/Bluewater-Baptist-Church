@@ -44,7 +44,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->item->params)
 
 	  <?php if($this->item->params->get('catItemTitle')): ?>
 	  <!-- Item title -->
-	  <h3 class="catItemTitle">
+	  <h2 class="catItemTitle">
 	  	<?php if ($this->item->params->get('catItemTitleLinked')): ?>
 			<a href="<?php echo $this->item->link; ?>">
 	  		<?php echo $this->item->title; ?>
@@ -62,7 +62,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->item->params)
 	  	</span>
 	  	<?php endif; ?>
 
-	  </h3>
+	  </h2>
 	  <?php endif; ?>
 
 		<?php if($this->item->params->get('catItemAuthor')): ?>

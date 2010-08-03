@@ -14,18 +14,16 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php foreach( $this->results as $result ) : ?>
 	<li>
 		<?php if ( $result->href ) : ?>
-			<a href="<?php echo JRoute::_($result->href); ?>" <?php if ($result->browsernav == 1 ) echo 'target="_blank"'; ?>><?php  echo $this->escape($result->title); ?></a>
+			<a href="<?php echo JRoute::_($result->href); ?>" <?php if ($result->browsernav == 1 ) echo 'target="_blank"'; ?>><?php  echo $this->escape($result->title); ?></a><br/>
 		<?php endif; ?>
 		
 		<?php if ( $result->section ) : ?>
-			<p class="info">
+			<span class="info">
 				(<?php echo $this->escape($result->section); ?>)
-			</p>
+			</span><br/>
 		<?php endif; ?>
 		
-		<p>
-			<?php echo $result->text; ?>
-		</p>
+		<p><?php echo $result->text; ?></p>
 		
 		<?php if ( $this->params->get( 'show_date' )) : ?>
 		<p>

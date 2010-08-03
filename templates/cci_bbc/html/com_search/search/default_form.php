@@ -12,8 +12,6 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <form id="searchForm" action="<?php echo JRoute::_( 'index.php?option=com_search' );?>" method="post" name="searchForm">
 <fieldset>
-	<legend><?php echo JText::_('Search Parameters') ?></legend>
-
 	<div>
 		<label for="search_searchword">
 			<?php echo JText::_( 'Search Keyword' ); ?>:
@@ -26,12 +24,14 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<?php echo $this->lists['searchphrase']; ?>
 	</div>
 	
+	<?php if (false): ?>
 	<div>
 		<label for="ordering">
 			<?php echo JText::_( 'Ordering' );?>:
 		</label>
 		<?php echo $this->lists['ordering'];?>
 	</div>
+	<?php endif; ?>
 	
 	<?php if ($this->params->get( 'search_areas', 1 )) : ?>
 	<div>
@@ -52,7 +52,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php echo $this->result; ?>
 </p>
 
-<?php if($this->total > 0) : ?>
+<?php if($this->total > 0 && false) : ?>
 <p>
 	<label for="limit">
 		<?php echo JText::_( 'Display Num' ); ?>

@@ -55,7 +55,8 @@ var _PopoutElement = new Class({
 		this.contentToggle.start(this.contentOpen);
 		this.headlineToggle.start(this.headlineOpen);
 		this.textToggle.start(this.textOpen);
-		this.highlightToggle.start(this.highlightOpen);
+		//this.highlightToggle.start(this.highlightOpen);
+		this.highlight.setStyles(this.highlightOpen);
 		
 		this.fireEvent('onOpen');
 	},
@@ -76,7 +77,8 @@ var _PopoutElement = new Class({
 		this.contentToggle.start(this.contentClose);
 		this.headlineToggle.start(this.headlineClose);
 		this.textToggle.start(this.textClose);
-		this.highlightToggle.start(this.highlightClose);
+		//this.highlightToggle.set(this.highlightClose);
+		this.highlight.setStyles(this.highlightClose);
 		
 		this.fireEvent('onClose');
 	},
@@ -121,8 +123,8 @@ var Popout = new Class({
 		contentClose: { width: 210 },
 		textOpen: {	opacity: 1 },
 		textClose: { opacity: 0 },
-		highlightOpen: { 'z-index': 5 },
-		highlightClose: { 'z-index': 0 },
+		highlightOpen: { display: 'block', opacity: 1 },
+		highlightClose: { display: 'none', opacity: 0 },
 	},
 	
 	container: null,
@@ -152,14 +154,21 @@ var Popout = new Class({
 				pe.highlightOpen	= this.options.highlightOpen;
 				pe.highlightClose	= this.options.highlightClose;
 				
-				pe.addEvent('onOpen', function() {	
-					console.log(pe.headline.textContent);
-				
+				pe.addEvent('onOpen', function() {					
 					for (i = 0; i < _elements.length; i++) {
 						if (_elements[i] != pe)
 							_elements[i].close();
 					}
 				});
+				
+				pe.addEvent('onMouseenter', function() {
+					$clear(timer);
+				}.bind(this));
+				pe.addEvent('onMouseleave', function() {
+					timer = rotate.delay(3000, this);
+					_elements[active].open();
+				});
+				
 				
 				_elements.push(pe);
 				if (index == 0) {
@@ -169,11 +178,19 @@ var Popout = new Class({
 				}
 			}, this);
 			
-			
 			var active = 0;
+			var timer = null;
 			var rotate = function() {
-				console.log(_elements.length);
+				_elements[active].close();
+				
+				active++;
+				if (active == _elements.length)
+					active = 0;
+					
+				_elements[active].open();
+				timer = rotate.delay(3000, this);
 			};
+			timer = rotate.delay(3000, this);
 			
 		}, this);
 	}, 

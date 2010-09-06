@@ -58,7 +58,10 @@ p {
 #body {
 	margin: 25px 0;
 	padding: 1px 0;
+	
+	position: relative;
 }
+
 #component {
 	padding: 1px 0;
 	width: 960px;
@@ -240,6 +243,8 @@ h2.catItemTitle {
 	background: url(../images/k2/masthead_center.png) no-repeat;
 	color: white;
 }
+.masthead_box .intro a { color: white; }
+.masthead_box .intro a:hover { text-decoration: none; }
 .masthead_box .first .intro { background-image: url(../images/k2/masthead_top.png); }
 .masthead_box .last .intro{ border: none; background-image: url(../images/k2/masthead_bottom.png); }
 .masthead_box p {
@@ -301,6 +306,10 @@ h2.catItemTitle {
 #sidebar .module p,
 #masthead .module p {
 	margin: 0.5em 0;
+}
+#sidebar .module a,
+#masthead .module a {
+	color:  white;
 }
 /* @end */
 /* @group content */

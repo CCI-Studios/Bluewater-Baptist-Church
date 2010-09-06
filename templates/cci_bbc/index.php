@@ -44,7 +44,7 @@
 		<?php endif; // masthead ?>
 		
 		<div id="body">
-			<div id="component" class="<?php if (($menu == 'home' && $this->countModules('sidebarHome')) || ($menu != 'home' && $this->countModules('sidebar'))) { echo 'narrow'; } ?>">
+			<div id="component" class="<?php if (($menu == 'home' && $this->countModules('sidebarHome')) || ($menu != 'home' && $this->countModules('sidebar'))) { echo 'narrow'; } ?>">			
 				<jdoc:include type="component" />
 			</div>
 			
